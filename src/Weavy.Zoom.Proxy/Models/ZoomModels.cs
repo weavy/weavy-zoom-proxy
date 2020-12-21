@@ -34,10 +34,40 @@ namespace Weavy.Zoom.Proxy.Models
         public string AccountId { get; set; }
 
         /// <summary>
+        /// The user id associated with the event
+        /// </summary>
+        [JsonPropertyName("user_id")]
+        public string UserId { get; set; }
+
+        /// <summary>
+        /// The client id associated with the event
+        /// </summary>
+        [JsonPropertyName("client_id")]
+        public string ClientId { get; set; }
+
+        /// <summary>
+        /// The user signature associated with the event
+        /// </summary>
+        [JsonPropertyName("signature")]
+        public string Signature { get; set; }
+
+        /// <summary>
+        /// The deauth time associated with the event
+        /// </summary>
+        [JsonPropertyName("deauthorization_time")]
+        public string DeauthorizationTime { get; set; }
+
+        /// <summary>
         /// The payload object
         /// </summary>
         [JsonPropertyName("object")]
         public ZoomEventPayloadObject Object { get; set; }
+
+        /// <summary>
+        /// true or false depending on user's retention settings
+        /// </summary>
+        [JsonPropertyName("user_data_retention")]
+        public string UserDataRetention { get; set; }
     }
 
 
