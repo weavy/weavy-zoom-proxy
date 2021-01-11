@@ -59,8 +59,8 @@ If you havn't already created a Zoom app on the Zoom Marketplace, go to https://
 
 
 ### 4. Update appsettings.json with the Zoom app credentials
-	- Take the Zoom Notification token from the Zoom app you just created and add it to appsettings.json. You should also add the same token to any Weavy tenant/instance. The token is the shared secret between any Weavy instance and the proxy.  For more information on how to configure Weavy with the correct verification token, go to docs.weavy.com/server/integrations/zoom#configuring-weavy. 
-	- Add the Zoom app's client id and secret to appsettings.json.
+- Take the Zoom Notification token from the Zoom app you just created and add it to appsettings.json. You should also add the same token to any Weavy tenant/instance. The token is the shared secret between any Weavy instance and the proxy.  For more information on how to configure Weavy with the correct verification token, go to docs.weavy.com/server/integrations/zoom#configuring-weavy. 
+- Add the Zoom app's client id and secret to appsettings.json.
 
 ### 5. Add content
 Zoom Marketplace requires that the following content is available for each app published on their store:
