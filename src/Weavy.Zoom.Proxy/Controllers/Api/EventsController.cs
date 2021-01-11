@@ -71,31 +71,10 @@ namespace Weavy.Zoom.Proxy.Controllers.Api
         }
 
         /// <summary>
-        /// Helper for constructing the compliance json data sent to Zoom after user deauthorization
+        /// Returns status for all requested meetings
         /// </summary>
-        /// <param name="zoomEvent"></param>
+        /// <param name="meetings"></param>
         /// <returns></returns>
-        private string SerializeComplianceData(ZoomNotification zoomEvent)
-        {
-            var json = new {
-                client_id = zoomEvent.Payload.ClientId,
-                user_id = zoomEvent.Payload.UserId,
-                account_id = zoomEvent.Payload.AccountId,
-                deauthorization_event_received = new
-                {
-                    user_data_retention = zoomEvent.Payload.UserDataRetention,
-                    account_id = zoomEvent.Payload.AccountId,
-                    user_id = zoomEvent.Payload.UserId,
-                    signature = zoomEvent.Payload.Signature,
-                    deauthorization_time = zoomEvent.Payload.DeauthorizationTime,
-                    client_id= zoomEvent.Payload.ClientId
-                },
-                compliance_completed = true
-            };
-
-            return JsonConvert.SerializeObject(json);
-        }
-
         [HttpPost]
         [TokenAuthorization]
         [Route("poll")]
@@ -115,6 +94,35 @@ namespace Weavy.Zoom.Proxy.Controllers.Api
             return Ok(result);         
         }
 
+        #region private
+
+        /// <summary>
+        /// Helper for constructing the compliance json data sent to Zoom after user deauthorization
+        /// </summary>
+        /// <param name="zoomEvent"></param>
+        /// <returns></returns>
+        private string SerializeComplianceData(ZoomNotification zoomEvent)
+        {
+            var json = new
+            {
+                client_id = zoomEvent.Payload.ClientId,
+                user_id = zoomEvent.Payload.UserId,
+                account_id = zoomEvent.Payload.AccountId,
+                deauthorization_event_received = new
+                {
+                    user_data_retention = zoomEvent.Payload.UserDataRetention,
+                    account_id = zoomEvent.Payload.AccountId,
+                    user_id = zoomEvent.Payload.UserId,
+                    signature = zoomEvent.Payload.Signature,
+                    deauthorization_time = zoomEvent.Payload.DeauthorizationTime,
+                    client_id = zoomEvent.Payload.ClientId
+                },
+                compliance_completed = true
+            };
+
+            return JsonConvert.SerializeObject(json);
+        }
+
         /// <summary>
         /// Helper for getting the metadata from an event where it is applicable
         /// </summary>
@@ -131,5 +139,7 @@ namespace Weavy.Zoom.Proxy.Controllers.Api
                     return null;
             }
         }
+
+        #endregion
     }
 }
