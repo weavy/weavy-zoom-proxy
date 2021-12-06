@@ -4,7 +4,7 @@ Source code for Weavy Zoom Proxy - a proxy managing Zoom Webhook notifications t
 
 ## Introduction
 Weavy allows developers that integrate any of the Weavy Messenger, Feeds or Comments app into their product to enable the Zoom integration. Once the Zoom integration is setup (https://docs.weavy.com/server/integrations/zoom), a meeting can be created directly inside Weavy.
-So, what about this proxy? Well, since Zoom allows a Zoom Marketplace app to work on any subdomain, the webhook notifications don't. Weavy use the Zoom webhooks to inform the end users when a meeting has ended and when (if) a cloud recording of that meeting is available. When that happens, the Zoom cards in Weavy are updated.
+So, what about this proxy? Well, even though Zoom allows a Zoom Marketplace app to work on any subdomain, the webhook notifications don't. Weavy use the Zoom webhooks to inform the end users when a meeting has ended and when (if) a cloud recording of that meeting is available. When that happens, the Zoom cards in Weavy are updated.
 This is why we built this Weavy Zoom Proxy, to handle Zoom notifications on any subdomain.
 
 ### How does it work?
